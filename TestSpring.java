@@ -7,8 +7,11 @@ public class TestSpring {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        Music beanMusic = classPathXmlApplicationContext.getBean("musicBean",Music.class);
-        MusicPlayer musicPlayer = new MusicPlayer(beanMusic); //внедряем зависимость вручную с помощью конструктора
+        //Music beanMusic = classPathXmlApplicationContext.getBean("musicBean",Music.class);
+        //MusicPlayer musicPlayer = new MusicPlayer(beanMusic); //внедряем зависимость вручную с помощью конструктора
+
+        MusicPlayer musicPlayer = classPathXmlApplicationContext.getBean("musicPlayerBean",MusicPlayer.class); //метод с dependencies injection
+
         musicPlayer.playMusic(); //использует зависимость чтобы реализовать метод
 
         classPathXmlApplicationContext.close();

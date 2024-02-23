@@ -9,4 +9,9 @@
     <bean id="musicBean"
           class="ru.anna.musicPlayer.RockMusic">
     </bean>
+
+    <bean id="musicPlayerBean"
+           class="ru.anna.musicPlayer.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
 </beans>
