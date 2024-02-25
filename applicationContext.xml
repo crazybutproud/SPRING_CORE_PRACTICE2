@@ -7,17 +7,20 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <!--    <context:property-placeholder location="classpath:musicPlayer.properties"/>-->
 
     <bean id="musicBean"
-          class="ru.anna.musicPlayer.RockMusic">
+          class="ru.anna.musicPlayer.RockMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getRockMusic">
     </bean>
 
-    <bean id="musicPlayerBean"
-           class="ru.anna.musicPlayer.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+    <!--    <bean id="musicPlayerBean"-->
+    <!--           class="ru.anna.musicPlayer.MusicPlayer">-->
+    <!--        <property name="music" ref="musicBean"/>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
 </beans>
